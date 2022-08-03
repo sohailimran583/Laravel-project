@@ -43,9 +43,12 @@
         <form action="{{route('posts.edit',['post'=>$post->id])}}">
         @CSRF
         <button type="submit" class="btn btn-primary">Edit</button></form>
-        @endcan
 
-    </td>
+        <form action="{{route('posts.show',['post'=>$post->id])}}">
+            @CSRF
+            <button type="submit" class="btn btn-primary">View</button></form>
+        @endcan
+         </td>
 
 <td> @cannot('update',$post)
     <p>Cannot delete or update</p>
