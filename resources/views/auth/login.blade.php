@@ -15,7 +15,7 @@
 
                 <form  action="{{route('login')}}" method="POST" class="mx-1 mx-md-4">
                     @CSRF
-
+                  
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
@@ -39,6 +39,7 @@
                     @endif
                   </div>
 
+                  
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button type="submit" class="btn btn-primary btn-lg">Login in</button>
                   </div>

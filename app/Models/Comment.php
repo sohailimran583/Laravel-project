@@ -3,14 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{Model,SoftDeletes};
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-    use HasFactory ,SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     public function blogpost(){
         return $this->belongsTo('App\Models\BlogPost');
     }
-
 }

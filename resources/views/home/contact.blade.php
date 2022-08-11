@@ -3,7 +3,4 @@
 
 @section('content')
 <h1>Contacct with layout</h1>
-@can('contact.secret')
-this is admin
-@endcan
 @endsection

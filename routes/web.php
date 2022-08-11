@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function(){
 Route::view('/','welcome');
 Route::get('/home',[HomeController::class ,'index']);
-Route::get('/contact',[HomeController::class ,'contact'])->name('home.contact')->middleware('can:contact.secret');
+Route::get('/contact',[HomeController::class ,'contact'])->name('home.contact');
 
 Route::resource('/posts',PostController::class);
 

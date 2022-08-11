@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\{StorePost,UpdatePost};
+use App\Http\Requests\StorePost;
+use App\Http\Requests\UpdatePost;
 use Illuminate\Http\Request;
 use App\Models\BlogPost;
-use Illuminate\Support\Facades\Gate;
-
 
 
 class PostController extends Controller
@@ -69,11 +68,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,Request $request)
+    public function edit($id)
     {
-
         $post= BlogPost::findOrfail($id);
-        $this->authorize('update',$post);
         return view ('posts.edit',compact('post'));
     }
 
@@ -87,11 +84,6 @@ class PostController extends Controller
     public function update(UpdatePost $request, $id)
     {
         $post=BlogPost::findOrfail($id);
-        // if(Gate::denies('checkuser',$post)){
-        //     helper_message($request,"Sorry you are not Authorize");
-        //     return redirect()->route('posts.index');
-        // }
-        $this->authorize('update',$post);
         $validated =$request->Validated();
         $post->fill($validated);
         $post->save();
@@ -110,7 +102,6 @@ class PostController extends Controller
     public function destroy($id,Request $request)
     {
         $post=BlogPost::findOrfail($id);
-        $this->authorize('delete',$post);
         $post->delete();
         helper_message($request,"deleted done");
         // $request->session()->flash('status','Blog Deleted successfull');
